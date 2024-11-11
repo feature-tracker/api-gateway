@@ -1,2 +1,1 @@
-# api-gateway
-API Gateway
+# API Gateway

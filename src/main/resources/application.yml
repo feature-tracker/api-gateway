@@ -1,0 +1,37 @@
+server:
+  port: 8989
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: false
+      routes:
+        - id: feature-service
+          uri: ${FEATURE_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/features/**
+          filters:
+            - RewritePath=/features/?(?<segment>.*), /${segment}
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Methods Access-Control-Allow-Headers RETAIN_FIRST
+
+  mvc:
+      problemdetails:
+        enabled: true
