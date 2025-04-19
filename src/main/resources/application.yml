@@ -29,6 +29,12 @@ spring:
             - Path=/features/**
           filters:
             - RewritePath=/features/?(?<segment>.*), /${segment}
+        - id: user-service
+          uri: ${USER_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/?(?<segment>.*), /${segment}
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Methods Access-Control-Allow-Headers RETAIN_FIRST
 
