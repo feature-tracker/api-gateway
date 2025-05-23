@@ -37,7 +37,8 @@ spring:
             - RewritePath=/users/?(?<segment>.*), /${segment}
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Methods Access-Control-Allow-Headers RETAIN_FIRST
-
+  config:
+    import: optional:configserver:http://localhost:8888
   mvc:
       problemdetails:
         enabled: true
