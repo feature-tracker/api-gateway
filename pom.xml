@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.0</version>
+        <version>3.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sivalabs.ft</groupId>
@@ -16,7 +16,7 @@
     <name>api-gateway</name>
     <description>Feature Tracker API Gateway</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>24</java.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
         <spotless-maven-plugin.version>2.44.5</spotless-maven-plugin.version>
         <dockerImageName>sivaprasadreddy/ft-api-gateway</dockerImageName>
