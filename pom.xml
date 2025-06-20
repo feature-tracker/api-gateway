@@ -19,6 +19,7 @@
         <java.version>24</java.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
         <spotless-maven-plugin.version>2.44.5</spotless-maven-plugin.version>
+        <palantir-java-format.version>2.50.0</palantir-java-format.version>
         <dockerImageName>sivaprasadreddy/ft-api-gateway</dockerImageName>
     </properties>
     <dependencies>
@@ -103,7 +104,7 @@
                         <importOrder />
                         <removeUnusedImports />
                         <palantirJavaFormat>
-                            <version>2.50.0</version>
+                            <version>${palantir-java-format.version}</version>
                         </palantirJavaFormat>
                         <formatAnnotations />
                     </java>
