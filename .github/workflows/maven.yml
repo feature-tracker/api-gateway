@@ -48,7 +48,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           ./mvnw spring-boot:build-image \
-          -DdockerImageName=docker.io/$DOCKER_IMAGE_NAME:amd64 \
+          -DdockerImageName=docker.io/$DOCKER_IMAGE_NAME-amd64 \
           -Dspring-boot.build-image.publish=true \
           -Dspring-boot.build-image.imagePlatform=linux/amd64 -DskipTests=true
 
@@ -57,7 +57,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           ./mvnw spring-boot:build-image \
-            -DdockerImageName=docker.io/$DOCKER_IMAGE_NAME:arm64 \
+            -DdockerImageName=docker.io/$DOCKER_IMAGE_NAME-arm64 \
             -Dspring-boot.build-image.publish=true \
             -Dspring-boot.build-image.imagePlatform=linux/arm64 -DskipTests=true
 
@@ -67,5 +67,5 @@ jobs:
         run: |
           docker buildx imagetools create \
             -t docker.io/$DOCKER_IMAGE_NAME:latest \
-            docker.io/$DOCKER_IMAGE_NAME:amd64 \
-            docker.io/$DOCKER_IMAGE_NAME:arm64
+            docker.io/$DOCKER_IMAGE_NAME-amd64 \
+            docker.io/$DOCKER_IMAGE_NAME-arm64
